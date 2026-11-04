@@ -1,0 +1,36 @@
+RESET
+Observation: [5, 0, 30, 0, 2, 1, 0, 0]
+. . . . . D
+. # # . . .
+. P . . . .
+. . . # . .
+. . . # . .
+R . C . . .
+Battery: 30/30 | Carrying: False | Step: 0
+
+DETERMINISTIC ROUTE DEMO (obstacle_probability=0)
+Step 01: up       pos=(4, 0) battery=29 carrying=False reward= -1.0 reason=running
+Step 02: up       pos=(3, 0) battery=28 carrying=False reward= -1.0 reason=running
+Step 03: up       pos=(2, 0) battery=27 carrying=False reward= -1.0 reason=running
+Step 04: right    pos=(2, 1) battery=26 carrying=True reward= -1.0 reason=running
+. . . . . D
+. # # . . .
+. R . . . .
+. . . # . .
+. . . # . .
+. . C . . .
+Battery: 26/30 | Carrying: True | Step: 4
+Step 05: right    pos=(2, 2) battery=25 carrying=True reward= -1.0 reason=running
+Step 06: right    pos=(2, 3) battery=24 carrying=True reward= -1.0 reason=running
+Step 07: right    pos=(2, 4) battery=23 carrying=True reward= -1.0 reason=running
+Step 08: right    pos=(2, 5) battery=22 carrying=True reward= -1.0 reason=running
+Step 09: up       pos=(1, 5) battery=21 carrying=True reward= -1.0 reason=running
+Step 10: up       pos=(0, 5) battery=20 carrying=True reward= 29.0 reason=delivered
+. . . . . R
+. # # . . .
+. . . . . .
+. . . # . .
+. . . # . .
+. . C . . .
+Battery: 20/30 | Carrying: True | Step: 10
+Delivery success: True
