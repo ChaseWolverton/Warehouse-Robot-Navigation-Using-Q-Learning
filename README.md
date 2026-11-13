@@ -38,3 +38,32 @@ python make_figures.py
 ## Next milestone
 
 Implement tabular Q-learning, random and shortest-path baselines, multiple-seed evaluation, and tests on changed obstacle configurations. Metrics: delivery rate, steps per successful delivery, battery remaining, and battery failures.
+
+## Milestone 3 — Q-learning and evaluation
+
+From the repository root, activate `.venv` and install requirements as above.
+
+```bash
+python -m pytest tests/ -v
+python train.py --episodes 20000 --seed 7
+python evaluate.py --episodes 100 --agent-seed 7
+python plot_milestone3.py --seed 7
+```
+
+The training script uses sparse tabular Q-learning (alpha=0.15, gamma=0.97),
+random tie-breaking, and epsilon decreasing linearly from 1.0 to 0.05 over
+80% of training, then remaining at 0.05. It uses battery=30 and stochastic
+obstacles (probability 0.15). Training includes an optional +8 pickup bonus
+(`--no-shaping` disables it); logged rewards and evaluation use the original
+environment reward. Evaluation uses fresh episodes and no Q updates, comparing
+greedy Q-learning with random actions and a BFS heuristic. The heuristic is
+provided as a reference, not as a learned policy.
+
+Generated files: `results/train_seed7.csv`, `results/agent_seed7.npz`,
+`results/evaluation_seed7.csv`, `results/milestone3_summary.csv`,
+`figures/milestone3_training.png`, and `figures/milestone3_baselines.png`.
+
+Run more seeds (e.g. 11 and 19) by changing `--seed` for training and
+`--agent-seed` for evaluation. Do not claim successful learning without
+checking the resulting CSV and plots. The saved Q-table is a generated artifact
+and can be omitted from the GitHub repository if it is large.
