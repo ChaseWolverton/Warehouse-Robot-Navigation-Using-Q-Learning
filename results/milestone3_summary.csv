@@ -1,0 +1,4 @@
+policy,episodes,success_rate,mean_reward,mean_steps,steps_if_success,battery_failures
+q_learning,100,1.0,15.74,14.1,14.1,0
+random,100,0.02,-84.6,44.16,59.5,98
+heuristic,100,1.0,19.3,10.7,10.7,0
